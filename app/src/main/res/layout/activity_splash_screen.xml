@@ -9,9 +9,29 @@
     tools:context=".SplashScreenActivity">
 
     <ImageView
-        android:layout_centerInParent="true"
-        android:src="@drawable/logonew"
+        android:layout_marginTop="10dp"
+        android:id="@+id/img"
         android:layout_width="150dp"
-        android:layout_height="150dp"/>
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/newlogo" />
 
+    <ImageView
+        android:id="@+id/img_prov"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_above="@id/img"
+        android:layout_centerInParent="true"
+
+        android:src="@drawable/ic_coat_of_arms_of_gorontalo" />
+
+    <TextView
+
+        android:gravity="center"
+        android:layout_below="@+id/img"
+        android:textColor="#2196F3"
+        android:textSize="26sp"
+        android:text="sIstem LAyanan peNGaduan JARINGAn iNternet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

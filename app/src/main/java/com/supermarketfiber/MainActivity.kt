@@ -14,9 +14,13 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    var url = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        url = intent.getStringExtra("URL").toString()
+
 
         webview?.webViewClient = object : WebViewClient() {
 
@@ -24,6 +28,7 @@ class MainActivity : AppCompatActivity() {
                 super.onPageFinished(view, url)
                 if (url.toString().contains("https://api.whatsapp.com/send/?phone=6281222301124"))
                 {
+                    btn_reload.visibility = View.GONE
                     webview.webChromeClient = object :WebChromeClient(){
 
                     }
@@ -36,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 error: WebResourceError?
             ) {
                 super.onReceivedError(view, request, error)
+                btn_reload.visibility = View.VISIBLE
                 Log.e("TAG","error ${error.toString()}")
                 Log.e("TAG","error ${request.toString()}")
             }
@@ -68,6 +74,18 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+        loadUrl()
+
+        btn_reload.setOnClickListener {
+            loadUrl()
+        }
+
+
+
+    }
+
+    private fun loadUrl() {
         webview?.settings?.setJavaScriptEnabled(true);
         webview?.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 
@@ -75,15 +93,11 @@ class MainActivity : AppCompatActivity() {
         webview?.getSettings()?.setUseWideViewPort(true);
         webview?.getSettings()?.setLoadWithOverviewMode(true);
 
-        webview.loadUrl("https://supermarketfiberoptic.com");
+        webview.loadUrl(url);
         Handler().postDelayed({
             progress_circular.visibility = View.GONE
-        },6000)
-
-
-
+        },5000)
     }
-
 
 
     override fun onBackPressed() {

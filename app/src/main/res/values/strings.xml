@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Supermareket Fiberoptik</string>
+    <string name="app_name">Ilang JARINGAN</string>
+    <string name="selamat_datang_di_layanan_help_desk_jaringan_internet_kominfotik_provinsi_gorontalo">Selamat Datang di Layanan Help Desk Jaringan Internet Dinas Kominfotik Provinsi Gorontalo.</string>
+    <string name="internet_indihome_lose">-> Internet Indihome Loss</string>
+    <string name="troubleshoot_gangguan_indihome">-> Troubleshoot Gangguan Indihome</string>
 </resources>
